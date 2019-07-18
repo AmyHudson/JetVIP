@@ -74,29 +74,19 @@ setwd("/Volumes/AOP-NEON1.4/VIP/JetVIP2/")
 library(raster)
 getData('ISO3')
 
+#future problem of europe having so many countries for getting data:
+# library(raster)
+# misc = list()
+# misc$countries = c("ZAF", "LSO", "SWZ", "ZWE", "MOZ", "NAM", "BWA")
+# ctry_shps = do.call("bind", lapply(misc$countries, 
+#                                    function(x) getData('GADM', country=x, level=0)))
+
 library(dplyr)
 library(purrr)
 
-count <- c("CAN","MEX")
-count_alt <- map(count, ~ {.x = getData("alt", country = .x)})
-eu_alt_xt <- map(count_alt, extent) %>%
-  map(as.vector) %>%
-  transpose() %>%
-  map(unlist) %>%
-  map2_dbl(seq_along(.), ., function(index, data) {
-    # even-number-indexed list items are xmax, ymax
-    if(index %% 2 == 0) { max(data) } else { min(data) }
-  }) %>%
-  extent
 
-blr <- raster(eu_alt_xt, resolution = 0.04, crs = '+init=EPSG:4326')
-eu_rs_brick <- map(count_alt, resample, y = blr) %>% brick
-eu_rs_raster <- calc(eu_rs_brick, mean, na.rm = TRUE) 
-plot(eu_rs_raster)
+elevation <- getData("alt", country = "CAN")
 
-
-
-elevation <- getData("alt", country = count)
 #x <- terrain(elevation, opt = c("slope", "aspect"), unit = "degrees")
 plot(elevation)
 
@@ -105,14 +95,17 @@ elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA2_msk_alt.grd`@extent
 elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA3_msk_alt.grd`@extent
 elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA4_msk_alt.grd`@extent
 
-elevation_a <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA1_msk_alt.grd`
-elevation_b <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA2_msk_alt.grd`
+elevation_a <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP/USA1_msk_alt.grd`
+elevation_b <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP/USA2_msk_alt.grd`
+elevation_c <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP/USA3_msk_alt.grd`
+elevation_d <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP/USA4_msk_alt.grd`
 #plot(elevation_a, add = T) #but different color scheme, so need to change for plotting on same map
 #plot(elevation_b, add = T)
 
 elevation2 <- getData("alt", country = "MEX")
 
-a <- merge(elevation,elevation_a,elevation_b,elevation2)
+a <- merge(elevation,elevation_a,elevation_b,elevation_c,elevation_d,elevation2)
+
 a@extent
 
 am6 <- as.matrix(am6)
