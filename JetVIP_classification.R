@@ -1,43 +1,55 @@
 # Land Cover, Koppen-Greiger climate classification, and Elevation test
 
 # I've subsetted the MODIS LC into AM, JA, and JF regions in matlab, saved as .mat files, and now read them into R
-setwd("/Volumes/AOP-NEON1.4/VIP/")
 
 #Import the results of the significance file -1 and 1
 
 am6 <- read.csv("am6_ns_sig.csv")
 am6[,1] <- NULL
+
 library(R.matlab)
 a <- readMat("MODISLC_AM_6.mat")# proj=GCTP_GEO
 a <- a$land2
-den <- freq(raster(as.matrix(a)))
+
+key <- as.data.frame(cbind(0:16, c("water","evergreen needleleaf forest","evergreen broadleaf forest","deciduous needleleaf forest","deciduous broadleaf forest","mixed forests","closed shrubland","open shrublands","woody savannas","savannas","grasslands","permanent wetlands","croplands","urban and built-up","cropland/natural vegetation mosaic","snow and ice","barren or sparsely vegetated")))
+colnames(key) <- c('SYM','LC')
+
+den <- as.data.frame(freq(raster(as.matrix(a))))
+rownames(den) <- c("water","evergreen needleleaf forest","evergreen broadleaf forest","deciduous needleleaf forest","deciduous broadleaf forest","mixed forests","closed shrubland","open shrublands","woody savannas","savannas","grasslands","permanent wetlands","croplands","urban and built-up","cropland/natural vegetation mosaic","snow and ice","barren or sparsely vegetated")
+
+key[key$SYM %in% den$value,3] <- den$count
 
 dim(a)
 b <- am6*a
 freq(raster(as.matrix(b)))
 
-num_pos <- freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]>0),]
-num_neg <- freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]<0),]
 # match the value column of the numerator with the value of the denominator, divide count of that num by count of denom
-lc <- matrix(NA, ncol = 2, nrow = 17)
 
-for (i in 1:17){
-  if (den[i,1] == num_pos[i,1]){
-    lc[i,1] <- den[i,1]
-    lc[i,2] <- num_pos[i,2]/den[i,2]
-  } 
-}
+num_pos <- as.data.frame(freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]>0),])
+lc_pos <- as.data.frame(num_pos$count/den[den$value %in% num_pos$value,]$count*100)
+rownames(lc_pos) <- rownames(den[den$value %in% num_pos$value,])
+lc_pos[,1] <- round(lc_pos[,1],2)
 
-#how to fill in the data frame with missing sequential values? will that help me then match/merge them and divide by the count?
-num_neg[1,2]/den[17,2]
-
-
-# perhaps should write as a percentage of the total count in the region <- a loop for 
-
+num_neg <- as.data.frame(freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]<0),])
+num_neg[,1] <- abs(num_neg[,1])
+num_neg <- num_neg[order(num_neg$value),]
+#good till here
+lc_neg <- as.data.frame(num_neg$count/den[den$value %in% num_neg$value,]$count*100)
+rownames(lc_neg) <- rownames(den[den$value %in% num_neg$value,])
+lc_neg[,1] <- round(lc_neg[,1],2)
 
 #merge these stats into one table
-key <- cbind(0:16, c("water","evergreen needleleaf forest","evergreen broadleaf forest","deciduous needleleaf forest","deciduous broadleaf forest","mixed forests","closed shrubland","open shrublands","woody savannas","savannas","grasslands","permanent wetlands","croplands","urban and built-up","cropland/natural vegetation mosaic","snow and ice","barren or sparsely vegetated"))
-as.numeric(key[,1])
+ 
+#how to fill in the data frame with missing sequential values? will that help me then match/merge them and divide by the count?
+
+key[key$SYM %in% num_neg$value,4] <- lc_neg[,1]
+key[key$SYM %in% num_pos$value,5] <- lc_pos[,1]
+
+colnames(key) <- c('SYM','LC_TYPE','AM6_TOTAL_PIXELS','AM6_DIFF_%EARLY','AM6_DIFF_%LATE')
+#work on adding plus one column each time? may not be worth the coding hours
+
+
+
 
 # elevation test
 setwd("/Volumes/AOP-NEON1.4/VIP/")
@@ -61,7 +73,30 @@ setwd("/Volumes/AOP-NEON1.4/VIP/JetVIP2/")
 
 library(raster)
 getData('ISO3')
-elevation <- getData("alt", country = "CAN")
+
+library(dplyr)
+library(purrr)
+
+count <- c("CAN","MEX")
+count_alt <- map(count, ~ {.x = getData("alt", country = .x)})
+eu_alt_xt <- map(count_alt, extent) %>%
+  map(as.vector) %>%
+  transpose() %>%
+  map(unlist) %>%
+  map2_dbl(seq_along(.), ., function(index, data) {
+    # even-number-indexed list items are xmax, ymax
+    if(index %% 2 == 0) { max(data) } else { min(data) }
+  }) %>%
+  extent
+
+blr <- raster(eu_alt_xt, resolution = 0.04, crs = '+init=EPSG:4326')
+eu_rs_brick <- map(count_alt, resample, y = blr) %>% brick
+eu_rs_raster <- calc(eu_rs_brick, mean, na.rm = TRUE) 
+plot(eu_rs_raster)
+
+
+
+elevation <- getData("alt", country = count)
 #x <- terrain(elevation, opt = c("slope", "aspect"), unit = "degrees")
 plot(elevation)
 
@@ -145,3 +180,5 @@ cc <- raster('KOPPEN_GEO_05.tif')
 extent(cc)
 e <- extent(-120,-94,20,70) 
 cccropped <- crop(cc,e) #ncols 520 nrows 1000 
+
+
