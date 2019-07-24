@@ -27,7 +27,7 @@ freq(raster(as.matrix(b)))
 
 num_pos <- as.data.frame(freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]>0),])
 lc_pos <- as.data.frame(num_pos$count/den[den$value %in% num_pos$value,]$count*100)
-rownames(lc_pos) <- rownames(den[den$value %in% num_pos$value,])
+rownames(lc_pos) <- den[den$value %in% num_pos$value,]$value
 lc_pos[,1] <- round(lc_pos[,1],2)
 
 num_neg <- as.data.frame(freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]<0),])
@@ -35,7 +35,7 @@ num_neg[,1] <- abs(num_neg[,1])
 num_neg <- num_neg[order(num_neg$value),]
 #good till here
 lc_neg <- as.data.frame(num_neg$count/den[den$value %in% num_neg$value,]$count*100)
-rownames(lc_neg) <- rownames(den[den$value %in% num_neg$value,])
+rownames(lc_neg) <- den[den$value %in% num_neg$value,]$value
 lc_neg[,1] <- round(lc_neg[,1],2)
 
 #merge these stats into one table
@@ -163,9 +163,10 @@ points(cd_narm$d,cd_narm$c, col = "red")
 #length(seq(-120,-94,0.05)) #521
 
 spTransform(am6_elevation)
-
+##############################################################################################################
 ## Koppen Geiger
-
+install.packages("rgdal")
+library(rgdal)
 library(raster)
 #t083<- raster('Beck_KG_V1_present_0p5.tif')
 
@@ -173,5 +174,45 @@ cc <- raster('KOPPEN_GEO_05.tif')
 extent(cc)
 e <- extent(-120,-94,20,70) 
 cccropped <- crop(cc,e) #ncols 520 nrows 1000 
+cccropped@data@values[cccropped@data@values==255] <- 0
+
+freq(raster(as.matrix(cccropped)))
+
+key <- as.data.frame(cbind(0:31, c("NA","Af","Am","Aw/As","BWh","BWk","BSh","BSk","Csa","Csb","Csc","Cwa","Cwb","Cwc","Cfa","Cfb","Cfc","Dsa","Dsb","Dsc","Dsd","Dwa","Dwb","Dwc","Dwd","Dfa","Dfb","Dfc","Dfd","ET","EF","?")))
+colnames(key) <- c('SYM','KG')
+
+den <- as.data.frame(freq(raster(as.matrix(cccropped))))
+
+key[key$SYM %in% den$value,3] <- den$count
+
+dim(cccropped)
+b <- am6*cccropped
+freq(raster(as.matrix(b)))
+
+# match the value column of the numerator with the value of the denominator, divide count of that num by count of denom
+
+num_pos <- as.data.frame(freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]>0),])
+lc_pos <- as.data.frame(num_pos$count/den[den$value %in% num_pos$value,]$count*100)
+rownames(lc_pos) <- den[den$value %in% num_pos$value,]$value
+lc_pos[,1] <- round(lc_pos[,1],2)
+
+num_neg <- as.data.frame(freq(raster(as.matrix(b)))[which(freq(raster(as.matrix(b)))[,1]<0),])
+num_neg[,1] <- abs(num_neg[,1])
+num_neg <- num_neg[order(num_neg$value),]
+
+lc_neg <- as.data.frame(num_neg$count/den[den$value %in% num_neg$value,]$count*100)
+rownames(lc_neg) <- den[den$value %in% num_neg$value,]$value
+lc_neg[,1] <- round(lc_neg[,1],2)
+
+#merge these stats into one table
+
+#how to fill in the data frame with missing sequential values? will that help me then match/merge them and divide by the count?
+
+key[key$SYM %in% num_neg$value,4] <- lc_neg[,1]
+key[key$SYM %in% num_pos$value,5] <- lc_pos[,1]
+
+colnames(key) <- c('SYM','KG_TYPE','AM6_TOTAL_PIXELS','AM6_DIFF_%EARLY','AM6_DIFF_%LATE')
+#work on adding plus one column each time? may not be worth the coding hours
+
 
 
