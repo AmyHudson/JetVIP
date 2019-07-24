@@ -1,5 +1,7 @@
 # Land Cover, Koppen-Greiger climate classification, and Elevation test
 
+# So Far for AM6 only
+
 # I've subsetted the MODIS LC into AM, JA, and JF regions in matlab, saved as .mat files, and now read them into R
 
 #Import the results of the significance file -1 and 1
@@ -7,6 +9,38 @@
 am6 <- read.csv("am6_ns_sig.csv")
 am6[,1] <- NULL
 
+
+# subsetting am6 by pixels that have an average start of spring in AM
+library(R.matlab)
+a <- readMat("SOS1_R3_20N70N_6.mat")
+lonmin1 <- -120
+lonmax1 <- -94
+lon <- seq(lonmin1,lonmax1,0.05)
+year <- 1981:2014
+lat <- seq(20,70,0.05)
+
+a2 <- a$sos3[which(year <=2012 & year >=1981),,]
+dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
+a2df <- as.data.frame(a2)
+colMeans(a2)
+a2_colmeans <- colMeans(a2,na.rm = T)
+
+a2df1 <- a2df
+
+am <- which(a2_colmeans<151 & a2_colmeans>91)
+dim(a2)
+
+am2NA <- matrix(NA,nrow = 1,ncol = 521521)
+dim(am2NA)
+am2NA[,which(a2_colmeans<151 & a2_colmeans>91)] <- 1
+dim(am2NA) <- c(length(lat),length(lon)) #1 and NA
+
+b <- am6*am2NA
+freq(raster(as.matrix(b)))
+freq(raster(as.matrix(am6)))
+
+am6 <- b
+###############################################################################
 library(R.matlab)
 a <- readMat("MODISLC_AM_6.mat")# proj=GCTP_GEO
 a <- a$land2
@@ -91,9 +125,10 @@ elevation <- getData("alt", country = "CAN")
 plot(elevation)
 
 elevation1 <- getData("alt", country = "USA")
-elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA2_msk_alt.grd`@extent
-elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA3_msk_alt.grd`@extent
-elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP2/USA4_msk_alt.grd`@extent
+elevation_a <- elevation1$`/Users/amyhudson/Documents/JetVIP/USA1_msk_alt.grd`
+elevation_b <- elevation1$`/Users/amyhudson/Documents/JetVIP/USA2_msk_alt.grd`
+elevation_c <- elevation1$`/Users/amyhudson/Documents/JetVIP/USA3_msk_alt.grd`
+elevation_d <- elevation1$`/Users/amyhudson/Documents/JetVIP/USA4_msk_alt.grd`
 
 elevation_a <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP/USA1_msk_alt.grd`
 elevation_b <- elevation1$`/Volumes/AOP-NEON1.4/VIP/JetVIP/USA2_msk_alt.grd`
@@ -128,9 +163,9 @@ plot(am6_elevation)
 am6_elev_resampled <- resample(am6_elevation,am6rotate) #bilinear interpolation 
 am6_elev_resampled@extent
 
-b <- am6_elev_resampled * am6
+b <- as.matrix(am6_elev_resampled) * am6
 
-b <- am6_elev_resampled * abs(am6)
+b <- as.matrix(am6_elev_resampled) * abs(am6) #run this for plotting elevation by doy
 summary(b)
 as.matrix(b)
 
@@ -144,7 +179,7 @@ d[d == "NaN"] = "NA"
 d <- as.numeric(d)
 cd <- data.frame(cbind(c,d))
 cd_narm <- cd[complete.cases(cd),]
-plot(cd_narm$d,cd_narm$c, xlab = "DOY",ylab = "Elevation")
+plot(cd_narm$d,cd_narm$c, xlab = "DOY",ylab = "Elevation", main = "AM Mask")
 legend("topright",
        c("colMeans(N)-colMeans(ALL)","colMeans(S)-colMeans(ALL)"),
        pch=c(1,1), # gives the legend appropriate symbols (lines)
