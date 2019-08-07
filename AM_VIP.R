@@ -489,32 +489,9 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am5_diff_south <- rotate3
-# 
+
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am5_diff_north <- rotate3
+
 # 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -858,6 +835,34 @@ rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
 extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
 am8_diff_all <- rotate3
 
+am8_diff_all1 <- am8_diff_all
+plot(am8_diff_all1,col = rwb)
+
+diff <- as.matrix(colMeans(m1))
+#diff[diff>12] <- 12
+#diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am8_north <- rotate3
+plot(am8_north,col = rwb)
+
+diff <- as.matrix(colMeans(m2))
+#diff[diff>12] <- 12
+#diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am8_south <- rotate3
+plot(am8_south,col = rwb,breaks = c(-60,-50,-40,-30,-20,-10,10,20,30,40,50,60))
 
 rho1 <- as.data.frame(matrix(NA,nrow = 1,ncol = length(m1)))#NA[length(mon1)]
 
