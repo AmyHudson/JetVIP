@@ -41,13 +41,13 @@ lat <- seq(20,70,0.05)
 q <- 10
 lonmin1 <- 24
 lonmax1 <- 74
-a <- readMat("SOS1_AM_R3_20N70N_1.mat")
+a <- readMat("SOS1_R3_20N70N_AM_1.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon)) 
@@ -126,13 +126,13 @@ write.csv(rho2, file = "am1_ns_sig.csv")
 q <- 11
 lonmin1 <- 74
 lonmax1 <- 116
-a <- readMat("SOS1_AM_R3_20N70N_2.mat")
+a <- readMat("SOS1_R3_20N70N_AM_2.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -211,13 +211,13 @@ write.csv(rho2, file = "am2_ns_sig.csv")
 q <- 12
 lonmin1 <- 116
 lonmax1 <- 152
-a <- readMat("SOS1_AM_R3_20N70N_3.mat")
+a <- readMat("SOS1_R3_20N70N_AM_3.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -298,13 +298,13 @@ q <- 13
 lonmin1 <- 152
 lonmax1 <- 179.95
 
-a <- readMat("SOS1_AM_R3_20N70N_4.mat")
+a <- readMat("SOS1_R3_20N70N_AM_4.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -390,13 +390,13 @@ q <- 13
 lonmin1 <- -180
 lonmax1 <- -150
 
-a <- readMat("SOS1_AM_R3_20N70N_4b.mat")
+a <- readMat("SOS1_R3_20N70N_AM_4b.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -475,13 +475,13 @@ q <- 14
 lonmin1 <- -150
 lonmax1 <- -120
 
-a <- readMat("SOS1_AM_R3_20N70N_5.mat") #
+a <- readMat("SOS1_R3_20N70N_AM_5.mat") #
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -585,13 +585,13 @@ write.csv(rho2, file = "am5_ns_sig.csv")
 q <- 15
 lonmin1 <- -120
 lonmax1 <- -94
-a <- readMat("SOS1_AM_R3_20N70N_6.mat")
+a <- readMat("SOS1_R3_20N70N_AM_6.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -683,13 +683,13 @@ q <- 16
 lonmin1 <- -94
 lonmax1 <- -56
 
-a <- readMat("SOS1_AM_R3_20N70N_7.mat")
+a <- readMat("SOS1_R3_20N70N_AM_7.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -804,13 +804,13 @@ q <- 17
 lonmin1 <- -10
 lonmax1 <- 8
 
-a <- readMat("SOS1_AM_R3_20N70N_8.mat")
+a <- readMat("SOS1_R3_20N70N_AM_8.mat")
 lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -928,31 +928,42 @@ map("world", col = "black", add = T)
 
 
 # #t1 <- merge(am1,am2,am3,tolerance = 0.5)
+
+lon <- seq(-180,179.95,0.05)
+rwb <- (brewer.pal(n = 11, name = 'RdBu'))
 t <- merge(am1_diff_all,am2_diff_all,am3_diff_all, tolerance = 0.5) 
-plot(t)
+
+png("sos1a_diff.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map.axes()
+plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+plot(am4_diff_all,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
 
 t <- merge(am5_diff_all,am6_diff_all,am7_diff_all, tolerance = 0.5) 
-# 
-lon <- seq(-180,179.95,0.05)
 
-rwb <- (brewer.pal(n = 11, name = 'RdBu'))
+png("sos1b_diff.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
 par(mai=c(1,1,1,1))
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = TRUE, col = "light gray", border="light gray")#, wrap=c(-180,180),add = F)
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = TRUE, col = "light gray", border="light gray")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
 map.axes()
+plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+plot(am4b_diff_all,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
 
-
-plot(am6_diff_all,col = rwb, add = T, legend = F)#,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), add = T, legend = T)
-
-map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "light gray")#, wrap=c(-180,180),add = F)
-plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)#, add = T, legend = T)
-plot(am4_diff_all,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = T)#, wrap=c(-180,180),add = F)
-
-plot(t,col = rwb, add = F, xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)),legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)#, add = T, legend = T)
-plot(am4_diff_all,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = T)#, wrap=c(-180,180),add = F)
+png("sos1c_diff.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
 map.axes()
+plot(am8_diff_all,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
+
 
 
 abline(v = -150)
@@ -1209,30 +1220,6 @@ map("world", col = "black", add = T)
 t <- merge(am1_ns_sig,am2_ns_sig,am3_ns_sig, tolerance = 0.5) 
 plot(t)
 
-t <- merge(am5_diff_all,am6_diff_all,am7_diff_all, tolerance = 0.5) 
-# 
-lon <- seq(-180,179.95,0.05)
-
-rwb <- (brewer.pal(n = 11, name = 'RdBu'))
-par(mai=c(1,1,1,1))
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = TRUE, col = "light gray", border="light gray")#, wrap=c(-180,180),add = F)
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = TRUE, col = "light gray", border="light gray")#, wrap=c(-180,180),add = F)
-map.axes()
-
-
-plot(am6_diff_all,col = rwb, add = T, legend = F)#,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), add = T, legend = T)
-
-map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "light gray")#, wrap=c(-180,180),add = F)
-plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)#, add = T, legend = T)
-plot(am4_diff_all,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = T)#, wrap=c(-180,180),add = F)
-
-plot(t,col = rwb, add = F, xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)),legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)#, add = T, legend = T)
-plot(am4_diff_all,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
-map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = T)#, wrap=c(-180,180),add = F)
-map.axes()
-
-
 
 
 ## experiment to try and get all rasters in 1 file
@@ -1247,40 +1234,4 @@ writeRaster(template, file="amsos1.tif", format="GTiff")
 mosaic_rasters(gdalfile=all_my_rasts,dst_dataset="amsos1.tif",of="GTiff")
 gdalinfo("amsos1.tif")
 #Reduce(function(...)merge(...,tolerance=1),ast14dmo.sd)
-
-png("sos1am_a.png",13,8,
-    units = "in",res = 600, pointsize=20, family= "helvetica")
-#par(mfrow=c(1,2), tcl=-0.5, family="serif", mai=c(0,0,0,0),mar = c(0, 0, 0, 0))
-map("world", xlim=c(-180,180),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = F)#, wrap=c(-180,180),add = F)
-map.axes()
-#t <- merge(am1_diff_all,am2_diff_all,am3_diff_all,am4_diff_all, tolerance = 1) 
-#plot(t)
-#map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = T)#, wrap=c(-180,180),add = F)
-t <- merge(am1_diff_all,am2_diff_all,am3_diff_all, tolerance = 1) 
-plot(t, add = T, col = rwb, legend = F)
-plot(am4_diff_all, add = T, col = rwb, legend = F)
-dev.off()
-
-#maybe set rasters to have all the same extent? but would that warp them?
-#setEPS()
-#postscript("sos1am_b.eps")
-
-png("sos1am_b.png",13,8,
-    units = "in",res = 600, pointsize=20, family= "helvetica")
-#par(mfrow=c(1,2), tcl=-0.5, family="serif", mai=c(0,0,0,0),mar = c(0, 0, 0, 0))
-map("world", xlim=c(-180,180),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = F)#, wrap=c(-180,180),add = F)
-map.axes()
-#t <- merge(am1_diff_all,am2_diff_all,am3_diff_all,am4_diff_all, tolerance = 1) 
-#plot(t)
-#map("world", xlim=c(0,max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = T)#, wrap=c(-180,180),add = F)
-t <- merge(am4b_diff_all,am5_diff_all,am6_diff_all, am7_diff_all, tolerance = 1) 
-plot(t, add = T, col = rwb,legend = F)
-plot(am8_diff_all, add = T,col = rwb,legend = F)
-#map("world", xlim=c(-180,180),ylim=c(min(lat),max(lat)), fill = F, col = "black", add = T)#, wrap=c(-180,180),add = F)
-
-#abline(v = -150)
-#abline(v = -120)
-#abline(v = -94)
-#abline(v = -56)
-dev.off()
 
