@@ -55,32 +55,32 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am1_diff_south <- rotate3
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am1_south <- rotate3
 
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am1_diff_north <- rotate3
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am1_north <- rotate3
 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -140,32 +140,32 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am2_diff_south <- rotate3
-# 
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am2_south <- rotate3
+
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am2_diff_north <- rotate3
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am2_north <- rotate3
 # 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -225,32 +225,32 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am3_diff_south <- rotate3
-# 
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am3_south <- rotate3
+
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am3_diff_north <- rotate3
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am3_north <- rotate3
 # 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -312,32 +312,32 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am4_diff_south <- rotate3
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am4_south <- rotate3
 # 
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am4_diff_north <- rotate3
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am4_north <- rotate3
 # 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -404,32 +404,32 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am4b_diff_south <- rotate3
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am4b_south <- rotate3
 # 
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am4b_diff_north <- rotate3
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am4b_north <- rotate3
 # 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -489,10 +489,33 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am5_south <- rotate3
 
 m1 <- a2df[year %in% as.character(allN),]
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am5_north <- rotate3
 
-# 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
 diff[diff>12] <- 12
@@ -577,32 +600,32 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am6_diff_south <- rotate3
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am6_south <- rotate3
 
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am6_diff_north <- rotate3
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am6_north <- rotate3
 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -678,32 +701,32 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am7_diff_south <- rotate3
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am7_south <- rotate3
 # 
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am7_diff_north <- rotate3
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am7_north <- rotate3
 # 
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
@@ -795,33 +818,33 @@ a2df <- as.data.frame(a2)
 
 m1 <- a2df[year %in% as.character(allS),]
 m2 <- m1
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am8_diff_south <- rotate3
+diff <- colMeans(m2)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am8_south <- rotate3
 # 
 m1 <- a2df[year %in% as.character(allN),]
-# diff <- colMeans(m1)-colMeans(a2df)
-# diff <- as.matrix(diff)
-# diff[diff>12] <- 12
-# diff[-12>diff] <- -12
-# dim(diff) <- c(length(lat),length(lon))
-# diff <- as.data.frame(diff)
-# colnames(diff) <- lon
-# rownames(diff) <- lat
-# diff <- as.matrix(diff)
-# rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-# extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-# am8_diff_north <- rotate3
-# 
+diff <- colMeans(m1)
+diff <- as.matrix(diff)
+diff[diff>12] <- 12
+diff[-12>diff] <- -12
+dim(diff) <- c(length(lat),length(lon))
+diff <- as.data.frame(diff)
+colnames(diff) <- lon
+rownames(diff) <- lat
+diff <- as.matrix(diff)
+rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
+extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
+am8_north <- rotate3
+
 diff <- colMeans(m1)-colMeans(m2)
 diff <- as.matrix(diff)
 diff[diff>12] <- 12
@@ -835,34 +858,6 @@ rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
 extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
 am8_diff_all <- rotate3
 
-am8_diff_all1 <- am8_diff_all
-plot(am8_diff_all1,col = rwb)
-
-diff <- as.matrix(colMeans(m1))
-#diff[diff>12] <- 12
-#diff[-12>diff] <- -12
-dim(diff) <- c(length(lat),length(lon))
-diff <- as.data.frame(diff)
-colnames(diff) <- lon
-rownames(diff) <- lat
-diff <- as.matrix(diff)
-rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-am8_north <- rotate3
-plot(am8_north,col = rwb)
-
-diff <- as.matrix(colMeans(m2))
-#diff[diff>12] <- 12
-#diff[-12>diff] <- -12
-dim(diff) <- c(length(lat),length(lon))
-diff <- as.data.frame(diff)
-colnames(diff) <- lon
-rownames(diff) <- lat
-diff <- as.matrix(diff)
-rotate3 <- raster(diff[nrow(diff):1,]) #need to flip rotate 3 on yaxis
-extent(rotate3) <- extent(c(min(lon),max(lon),min(lat),max(lat)))
-am8_south <- rotate3
-plot(am8_south,col = rwb,breaks = c(-60,-50,-40,-30,-20,-10,10,20,30,40,50,60))
 
 rho1 <- as.data.frame(matrix(NA,nrow = 1,ncol = length(m1)))#NA[length(mon1)]
 
@@ -1228,15 +1223,85 @@ plot(t)
 
 
 ## experiment to try and get all rasters in 1 file
+# 
+# library(gdalUtils)
+# library(rgdal)
+# all_my_rasts <- c('am1_diff_all', 'am2_diff_all', 'am3_diff_all','am4_diff_all')
+# e <- extent(0, 180, 20, 70)
+# template <- raster(e)
+# projection(template) <- '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'
+# writeRaster(template, file="amsos1.tif", format="GTiff")
+# mosaic_rasters(gdalfile=all_my_rasts,dst_dataset="amsos1.tif",of="GTiff")
+# gdalinfo("amsos1.tif")
+# #Reduce(function(...)merge(...,tolerance=1),ast14dmo.sd)
 
-library(gdalUtils)
-library(rgdal)
-all_my_rasts <- c('am1_diff_all', 'am2_diff_all', 'am3_diff_all','am4_diff_all')
-e <- extent(0, 180, 20, 70)
-template <- raster(e)
-projection(template) <- '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'
-writeRaster(template, file="amsos1.tif", format="GTiff")
-mosaic_rasters(gdalfile=all_my_rasts,dst_dataset="amsos1.tif",of="GTiff")
-gdalinfo("amsos1.tif")
-#Reduce(function(...)merge(...,tolerance=1),ast14dmo.sd)
+################################################################################# 
+## Plotting North and South separately
 
+lon <- seq(-180,179.95,0.05)
+rwb <- (brewer.pal(n = 11, name = 'RdBu'))
+t <- merge(am1_south,am2_south,am3_south, tolerance = 0.5) 
+
+png("sos1a_south.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map.axes()
+plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+plot(am4_south,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
+
+t <- merge(am5_south,am6_south,am7_south, tolerance = 0.5) 
+
+png("sos1b_south.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map.axes()
+plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+plot(am4b_south,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
+
+png("sos1c_south.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map.axes()
+plot(am8_south,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
+
+t <- merge(am1_north,am2_north,am3_north, tolerance = 0.5) 
+
+png("sos1a_north.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map.axes()
+plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+plot(am4_north,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
+
+t <- merge(am5_north,am6_north,am7_north, tolerance = 0.5) 
+
+png("sos1b_north.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map.axes()
+plot(t,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+plot(am4b_north,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
+
+png("sos1c_north.png",13,8,
+    units = "in",res = 600, pointsize=20, family= "helvetica")
+par(mai=c(1,1,1,1))
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map("world", xlim=c(min(lon),max(lon)),ylim=c(min(lat),max(lat)), fill = F, col = "black")#, wrap=c(-180,180),add = F)
+map.axes()
+plot(am8_north,col = rwb, add = T, legend = F,breaks = c(-12,-10,-8,-6,-4,-2,2,4,6,8,10,12), axes = F)
+dev.off()
