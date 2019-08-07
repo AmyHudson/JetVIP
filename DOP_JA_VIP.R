@@ -46,8 +46,8 @@ lon <- seq(lonmin1,lonmax1,0.05) #179.95 lon
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon)) 
@@ -136,8 +136,8 @@ lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -224,8 +224,8 @@ lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -311,8 +311,8 @@ lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -403,8 +403,8 @@ lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -488,8 +488,8 @@ lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -598,8 +598,8 @@ lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
@@ -696,8 +696,8 @@ lon <- seq(lonmin1,lonmax1,0.05)
 
 indices_names[q]
 all <- as.data.frame(cbind(jet$YEAR,jet[,q])) #
-allS <- all[order(all$V2),]$V1[1:10]
-allN <- all[order(all$V2),]$V1[(length(all$V1)-10+1):length(all$V1)]
+allS <- all[order(all$V2),]$V1[1:8]
+allN <- all[order(all$V2),]$V1[(length(all$V1)-8+1):length(all$V1)]
 
 a2 <- a$sos3[which(year <=2012 & year >=1981),,]
 dim(a2)<- c(length(1981:2012),length(lat)*length(lon))
